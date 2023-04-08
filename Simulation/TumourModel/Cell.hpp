@@ -116,7 +116,17 @@ public:
 		}
 		return sqrt(minDistance);
 	}
-
+	double DistanceFromBoundary_new(vector<Cell*> &boundaryCells)
+	{
+		double minDistance = MAX_DBL;
+		for (Cell* boundaryCell : boundaryCells)
+		{
+			double distance = DistanceSquaredTo(boundaryCell);
+			if (distance < minDistance)
+				minDistance = distance;
+		}
+		return sqrt(minDistance);
+	}
 	bool Necrotic(double distanceToBoundary, Params* parameters)
 	{
 		// a long way from any boundary cell

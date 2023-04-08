@@ -45,6 +45,6 @@ public:
 
 const double Params::s = 3.03;
 const double Params::mu = 0.01;
-const double Params::Delta_t = 30;
+const double Params::Delta_t = 60;
 const double Params::rmin = 2;
 const int Params::tinterval = 24;

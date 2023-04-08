@@ -1,9 +1,9 @@
-%% About defineModel.mlx
+%% About defineModel.m
 % This file defines the MATLAB interface to the library |Model|.
 %
 % Commented sections represent C++ functionality that MATLAB cannot automatically define. To include
-% functionality, uncomment a section and provide values for &lt;SHAPE&gt;, &lt;DIRECTION&gt;, etc. For more
-% information, see <matlab:helpview(fullfile(docroot,'matlab','helptargets.map'),'cpp_define_interface') Define MATLAB Interface for C++ Library>.
+% functionality, uncomment a section and provide values for 1, <DIRECTION>, etc. For more
+% information, see helpview(fullfile(docroot,'matlab','helptargets.map'),'cpp_define_interface') to "Define MATLAB Interface for C++ Library".
 
 
 
@@ -11,8 +11,9 @@
 % Do not edit this setup section.
 function libDef = defineModel()
 libDef = clibgen.LibraryDefinition("ModelData.xml");
+
 %% OutputFolder and Libraries 
-libDef.OutputFolder = "C:\Users\aufb\Dropbox\XYcode";
+libDef.OutputFolder = "C:\Users\jenner2\Dropbox\VCBM-Adrianne test";
 libDef.Libraries = "";
 
 %% C++ class |Params| with MATLAB name |clib.Model.Params| 
@@ -21,6 +22,7 @@ ParamsDefinition = addClass(libDef, "Params", "MATLABName", "clib.Model.Params",
 
 %% C++ class constructor for C++ class |Params| 
 % C++ Signature: Params::Params(double p_0,double p_psc,double dmax,int gage,int page)
+
 ParamsConstructor1Definition = addConstructor(ParamsDefinition, ...
     "Params::Params(double p_0,double p_psc,double dmax,int gage,int page)", ...
     "Description", "clib.Model.Params Constructor of C++ class Params."); % Modify help description values as needed.
@@ -33,6 +35,7 @@ validate(ParamsConstructor1Definition);
 
 %% C++ class method |RandomDouble| for C++ class |Params| 
 % C++ Signature: double Params::RandomDouble()
+
 RandomDoubleDefinition = addMethod(ParamsDefinition, ...
     "double Params::RandomDouble()", ...
     "MATLABName", "RandomDouble", ...
@@ -42,6 +45,7 @@ validate(RandomDoubleDefinition);
 
 %% C++ class method |WithProbability| for C++ class |Params| 
 % C++ Signature: bool Params::WithProbability(double prob)
+
 WithProbabilityDefinition = addMethod(ParamsDefinition, ...
     "bool Params::WithProbability(double prob)", ...
     "MATLABName", "WithProbability", ...
@@ -52,51 +56,61 @@ validate(WithProbabilityDefinition);
 
 %% C++ class public data member |gage| for C++ class |Params| 
 % C++ Signature: int Params::gage
+
 addProperty(ParamsDefinition, "gage", "int32", ...
     "Description", "int32    Data member of C++ class Params."); % Modify help description values as needed.
 
 %% C++ class public data member |page| for C++ class |Params| 
 % C++ Signature: int Params::page
+
 addProperty(ParamsDefinition, "page", "int32", ...
     "Description", "int32    Data member of C++ class Params."); % Modify help description values as needed.
 
 %% C++ class public data member |p_0| for C++ class |Params| 
 % C++ Signature: double Params::p_0
+
 addProperty(ParamsDefinition, "p_0", "double", ...
     "Description", "double    Data member of C++ class Params."); % Modify help description values as needed.
 
 %% C++ class public data member |dmax| for C++ class |Params| 
 % C++ Signature: double Params::dmax
+
 addProperty(ParamsDefinition, "dmax", "double", ...
     "Description", "double    Data member of C++ class Params."); % Modify help description values as needed.
 
 %% C++ class public data member |p_psc| for C++ class |Params| 
 % C++ Signature: double Params::p_psc
+
 addProperty(ParamsDefinition, "p_psc", "double", ...
     "Description", "double    Data member of C++ class Params."); % Modify help description values as needed.
 
 %% C++ class public data member |s| for C++ class |Params| 
 % C++ Signature: static double const Params::s
+
 addProperty(ParamsDefinition, "s", "double", ...
     "Description", "double    read-only Data member of C++ class Params."); % Modify help description values as needed.
 
 %% C++ class public data member |mu| for C++ class |Params| 
 % C++ Signature: static double const Params::mu
+
 addProperty(ParamsDefinition, "mu", "double", ...
     "Description", "double    read-only Data member of C++ class Params."); % Modify help description values as needed.
 
 %% C++ class public data member |Delta_t| for C++ class |Params| 
 % C++ Signature: static double const Params::Delta_t
+
 addProperty(ParamsDefinition, "Delta_t", "double", ...
     "Description", "double    read-only Data member of C++ class Params."); % Modify help description values as needed.
 
 %% C++ class public data member |rmin| for C++ class |Params| 
 % C++ Signature: static double const Params::rmin
+
 addProperty(ParamsDefinition, "rmin", "double", ...
     "Description", "double    read-only Data member of C++ class Params."); % Modify help description values as needed.
 
 %% C++ class public data member |tinterval| for C++ class |Params| 
 % C++ Signature: static int const Params::tinterval
+
 addProperty(ParamsDefinition, "tinterval", "int32", ...
     "Description", "int32    read-only Data member of C++ class Params."); % Modify help description values as needed.
 
@@ -106,6 +120,7 @@ PancreasDefinition = addClass(libDef, "Pancreas", "MATLABName", "clib.Model.Panc
 
 %% C++ class method |CreateNewParticle| for C++ class |Pancreas| 
 % C++ Signature: Pancreas * Pancreas::CreateNewParticle(Params * parameters)
+
 CreateNewParticleDefinition = addMethod(PancreasDefinition, ...
    "Pancreas * Pancreas::CreateNewParticle(Params * parameters)", ...
    "MATLABName", "CreateNewParticle", ...
@@ -116,6 +131,7 @@ validate(CreateNewParticleDefinition);
 
 %% C++ class method |LoadCellsCoordinates| for C++ class |Pancreas| 
 % C++ Signature: double * Pancreas::LoadCellsCoordinates()
+
 LoadCellsCoordinatesDefinition = addMethod(PancreasDefinition, ...
    "double * Pancreas::LoadCellsCoordinates()", ...
    "MATLABName", "LoadCellsCoordinates", ...
@@ -125,6 +141,7 @@ validate(LoadCellsCoordinatesDefinition);
 
 %% C++ class method |TumourVolume| for C++ class |Pancreas| 
 % C++ Signature: double Pancreas::TumourVolume()
+
 TumourVolumeDefinition = addMethod(PancreasDefinition, ...
     "double Pancreas::TumourVolume()", ...
     "MATLABName", "TumourVolume", ...
@@ -134,6 +151,7 @@ validate(TumourVolumeDefinition);
 
 %% C++ class method |CreateInitialTumour| for C++ class |Pancreas| 
 % C++ Signature: void Pancreas::CreateInitialTumour()
+
 CreateInitialTumourDefinition = addMethod(PancreasDefinition, ...
     "void Pancreas::CreateInitialTumour()", ...
     "MATLABName", "CreateInitialTumour", ...
@@ -142,6 +160,7 @@ validate(CreateInitialTumourDefinition);
 
 %% C++ class method |SimulateOneDay| for C++ class |Pancreas| 
 % C++ Signature: double Pancreas::SimulateOneDay(int day)
+
 SimulateOneDayDefinition = addMethod(PancreasDefinition, ...
     "double Pancreas::SimulateOneDay(int day)", ...
     "MATLABName", "SimulateOneDay", ...
@@ -152,15 +171,17 @@ validate(SimulateOneDayDefinition);
 
 %% C++ class method |UpdateParameters| for C++ class |Pancreas| 
 % C++ Signature: void Pancreas::UpdateParameters(Params * parameters)
+
 UpdateParametersDefinition = addMethod(PancreasDefinition, ...
    "void Pancreas::UpdateParameters(Params * parameters)", ...
    "MATLABName", "UpdateParameters", ...
    "Description", "UpdateParameters Method of C++ class Pancreas."); % Modify help description values as needed.
-defineArgument(UpdateParametersDefinition, "parameters", "clib.Model.Params", "input",1); % <MLTYPE> can be "clib.Model.Params", or "clib.array.Model.Params"
+defineArgument(UpdateParametersDefinition, "parameters", "clib.Model.Params", "input", 1); % <MLTYPE> can be "clib.Model.Params", or "clib.array.Model.Params"
 validate(UpdateParametersDefinition);
 
 %% C++ class method |ReturnCellPositions| for C++ class |Pancreas| 
 % C++ Signature: double Pancreas::ReturnCellPositions(int index)
+
 ReturnCellPositionsDefinition = addMethod(PancreasDefinition, ...
     "double Pancreas::ReturnCellPositions(int index)", ...
     "MATLABName", "ReturnCellPositions", ...
@@ -171,6 +192,7 @@ validate(ReturnCellPositionsDefinition);
 
 %% C++ class method |ReturnNumberCells| for C++ class |Pancreas| 
 % C++ Signature: int Pancreas::ReturnNumberCells()
+
 ReturnNumberCellsDefinition = addMethod(PancreasDefinition, ...
     "int Pancreas::ReturnNumberCells()", ...
     "MATLABName", "ReturnNumberCells", ...
@@ -180,6 +202,7 @@ validate(ReturnNumberCellsDefinition);
 
 %% C++ class method |ReturnCellType| for C++ class |Pancreas| 
 % C++ Signature: int Pancreas::ReturnCellType(int index)
+
 ReturnCellTypeDefinition = addMethod(PancreasDefinition, ...
     "int Pancreas::ReturnCellType(int index)", ...
     "MATLABName", "ReturnCellType", ...
@@ -190,6 +213,7 @@ validate(ReturnCellTypeDefinition);
 
 %% C++ class constructor for C++ class |Pancreas| 
 % C++ Signature: Pancreas::Pancreas(Pancreas const & input1)
+
 PancreasConstructor1Definition = addConstructor(PancreasDefinition, ...
     "Pancreas::Pancreas(Pancreas const & input1)", ...
     "Description", "clib.Model.Pancreas Constructor of C++ class Pancreas."); % Modify help description values as needed.
@@ -198,6 +222,7 @@ validate(PancreasConstructor1Definition);
 
 %% C++ function |SeedAndGrowToStartVolume| with MATLAB name |clib.Model.SeedAndGrowToStartVolume|
 % C++ Signature: Pancreas * SeedAndGrowToStartVolume(double p0,double psc,int dmax,int gage,int page,double startVolume)
+
 SeedAndGrowToStartVolumeDefinition = addFunction(libDef, ...
    "Pancreas * SeedAndGrowToStartVolume(double p0,double psc,int dmax,int gage,int page,double startVolume)", ...
    "MATLABName", "clib.Model.SeedAndGrowToStartVolume", ...
@@ -213,6 +238,7 @@ validate(SeedAndGrowToStartVolumeDefinition);
 
 %% C++ function |CreateNewParticle| with MATLAB name |clib.Model.CreateNewParticle|
 % C++ Signature: Pancreas * CreateNewParticle(double p0,double psc,int dmax,int gage,int page,Pancreas * pancreas)
+
 CreateNewParticleDefinition = addFunction(libDef, ...
    "Pancreas * CreateNewParticle(double p0,double psc,int dmax,int gage,int page,Pancreas * pancreas)", ...
    "MATLABName", "clib.Model.CreateNewParticle", ...
@@ -228,6 +254,7 @@ validate(CreateNewParticleDefinition);
 
 %% C++ function |UpdateParticle| with MATLAB name |clib.Model.UpdateParticle|
 % C++ Signature: void UpdateParticle(double p0,double psc,int dmax,int gage,int page,Pancreas * pancreas)
+
 UpdateParticleDefinition = addFunction(libDef, ...
    "void UpdateParticle(double p0,double psc,int dmax,int gage,int page,Pancreas * pancreas)", ...
    "MATLABName", "clib.Model.UpdateParticle", ...
@@ -239,6 +266,45 @@ defineArgument(UpdateParticleDefinition, "gage", "int32");
 defineArgument(UpdateParticleDefinition, "page", "int32");
 defineArgument(UpdateParticleDefinition, "pancreas", "clib.Model.Pancreas", "input", 1); % <MLTYPE> can be "clib.Model.Pancreas", or "clib.array.Model.Pancreas"
 validate(UpdateParticleDefinition);
+
+%% C++ function |FullSimulation_biphasic| with MATLAB name |clib.Model.FullSimulation_biphasic|
+% C++ Signature: std::vector<double, std::allocator<double>> FullSimulation_biphasic(double p0_1,double psc_1,int dmax_1,int gage_1,int page,double p0_2,double psc_2,int dmax_2,int gage_2,double tau,double startVolume,int simtime)
+
+FullSimulation_biphasicDefinition = addFunction(libDef, ...
+    "std::vector<double, std::allocator<double>> FullSimulation_biphasic(double p0_1,double psc_1,int dmax_1,int gage_1,int page,double p0_2,double psc_2,int dmax_2,int gage_2,double tau,double startVolume,int simtime)", ...
+    "MATLABName", "clib.Model.FullSimulation_biphasic", ...
+    "Description", "clib.Model.FullSimulation_biphasic Representation of C++ function FullSimulation_biphasic."); % Modify help description values as needed.
+defineArgument(FullSimulation_biphasicDefinition, "p0_1", "double");
+defineArgument(FullSimulation_biphasicDefinition, "psc_1", "double");
+defineArgument(FullSimulation_biphasicDefinition, "dmax_1", "int32");
+defineArgument(FullSimulation_biphasicDefinition, "gage_1", "int32");
+defineArgument(FullSimulation_biphasicDefinition, "page", "int32");
+defineArgument(FullSimulation_biphasicDefinition, "p0_2", "double");
+defineArgument(FullSimulation_biphasicDefinition, "psc_2", "double");
+defineArgument(FullSimulation_biphasicDefinition, "dmax_2", "int32");
+defineArgument(FullSimulation_biphasicDefinition, "gage_2", "int32");
+defineArgument(FullSimulation_biphasicDefinition, "tau", "double");
+defineArgument(FullSimulation_biphasicDefinition, "startVolume", "double");
+defineArgument(FullSimulation_biphasicDefinition, "simtime", "int32");
+defineOutput(FullSimulation_biphasicDefinition, "RetVal", "clib.array.Model.Double");
+validate(FullSimulation_biphasicDefinition);
+
+%% C++ function |FullSimulation| with MATLAB name |clib.Model.FullSimulation|
+% C++ Signature: std::vector<double, std::allocator<double>> FullSimulation(double p0,double psc,int dmax,int gage,int page,double startVolume,int simtime)
+
+FullSimulationDefinition = addFunction(libDef, ...
+    "std::vector<double, std::allocator<double>> FullSimulation(double p0,double psc,int dmax,int gage,int page,double startVolume,int simtime)", ...
+    "MATLABName", "clib.Model.FullSimulation", ...
+    "Description", "clib.Model.FullSimulation Representation of C++ function FullSimulation."); % Modify help description values as needed.
+defineArgument(FullSimulationDefinition, "p0", "double");
+defineArgument(FullSimulationDefinition, "psc", "double");
+defineArgument(FullSimulationDefinition, "dmax", "int32");
+defineArgument(FullSimulationDefinition, "gage", "int32");
+defineArgument(FullSimulationDefinition, "page", "int32");
+defineArgument(FullSimulationDefinition, "startVolume", "double");
+defineArgument(FullSimulationDefinition, "simtime", "int32");
+defineOutput(FullSimulationDefinition, "RetVal", "clib.array.Model.Double");
+validate(FullSimulationDefinition);
 
 %% Validate the library definition
 validate(libDef);
