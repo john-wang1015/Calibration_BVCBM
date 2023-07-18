@@ -1,1 +1,3 @@
 # Calibration_BVCBM
+
+This repository contains the code for the paper titled `Calibration of Agent Based Models for Monophasic and Biphasic Tumour Growth using Approximate Bayesian Computation`. The code is designed to run on Windows 10 or later versions. If you wish to run it on macOS or Linux, please recompile the `Model.cpp` file, located in the `TumourModel` folder, using MATLAB. To verify that the C++ codes have been correctly compiled in your system, you should execute the `run_PancreaticMouse1.m` file. If any issues arise, kindly report them in this repository, and I will respond as soon as possible.
